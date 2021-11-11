@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!--FONT AWESOME CSS-->
+        
+        <link rel="stylesheet" type="text/css" href="fonts/fontawesome-free-5.13.0-web/css/all.min.css">
+        
+        <!-- CUSTOM CSS-->
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        
+        <title>Hello, world!</title>
+    </head>
+    <body>
+
+
+
+        <script type="text/javascript">
+            //come manipolare le stringhe
+            //le stringhe sono sempre 0 based
+
+
+            var txt ="oggi ho avuto 9 ore di lezione";
+            var lung = txt.length;  // length è una proprietà
+
+            console.log(lung);
+
+            //METODI PER RICERCA
+
+            var search1 = txt.indexOf("lezione");
+             //indexOf fornisce l'indice in qui inizia una determinata parola o lettera, se ce ne sono di più, si ferma alla prima occorrenza
+
+            console.log(search1);
+
+            var search2 = txt.lastIndexOf('i'); //ritorna la posizione dell'ultima lettera trovata 
+            console.log(search2);
+            console.log('--------');
+
+            var search3 = txt.charAt(5); //restituisce il carattere alla posizione x
+            console.log(search3);
+            console.log('--------');
+
+            var search4 = txt.indexOf('f'); //se non c'è, restituisce -1
+            console.log(search4);
+            console.log('--------');
+
+
+            //METODI PER IL TAGLIO
+            var testo = "andiamo in pausa";
+            var slice = testo.slice(10,15); //seleziona dall'indice 1 all'indice 2 e lo ritorna
+
+            var slice2 = testo.substring(10,16);
+            console.log(slice2);
+            console.log(testo);
+
+
+
+
+            //METODI PER SOSTITUIRE
+            var stringa = "Il migliore browser del mondo è IE";
+            var sost = stringa.replace('IE', 'Chrome');
+
+            console.log(sost);
+            console.log('--------');
+
+            var string2 = "NON URLARE IN CHAT";
+            var low = string2.toLocaleLowerCase();
+            console.log(low);
+            console.log('--------');
+
+
+            //METODI STRING ARRAY
+            var string4 = "ciao";
+            var stringINArray = string4.split('');
+            console.log(stringINArray);
+            console.log('--------');
+
+            var string5 = "ciao-come-stai";
+            var stringINArray2 = string5.split('-');
+            console.log(stringINArray2);
+            console.log('--------');
+
+            var string6 = ['D','A','R','I','O'];
+            var arrayToString = string6.join('');
+            console.log(arrayToString);
+            console.log('--------');
+
+            //esempio
+            var strEsempio = "ciao come stai ?";
+            var stringArr = strEsempio.split('').reverse().join('');
+            console.log(stringArr);
+
+
+            
+
+
+
+
+
+            
+        </script>
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
