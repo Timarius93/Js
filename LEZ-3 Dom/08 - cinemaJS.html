@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Cinema Js all'aperto</h1>
+
+    <p>Questa è la selezione dei nostri film</p>
+
+    <div class="container">
+        <h1 id="titolo"></h1>
+        <figure>
+            <img id="locandina">
+        </figure>
+
+        <ul id="attori">
+
+        </ul>
+
+        <p id="genere"></p>
+        <p id="durata"></p>
+        <p id="anno"></p>
+
+        <button id="indietro" onclick="ruota('indietro')">Indietro</button>
+        <button id="avanti" onclick="ruota('avanti')">Avanti</button>
+    </div>
+
+
+    <script type="text/javascript">
+
+    //vettore di oggetti, gli oggetti sono nelle {}
+    var film =[ 
+        {
+        titolo: "Shutter Island",
+        durata: 120,
+        genere: "Thriller, Drammatico",
+        attori: ['Leonardo DiCaprio', 'Mark Ruffalo', 'Michelle Williams'],
+        locandina: 'https://pad.mymovies.it/filmclub/2009/03/099/locandina.jpg'
+        },
+
+        {
+        titolo: "L'ultimo samurai",
+        durata: 180,
+        genere: "Drammatico",
+        attori: ['Tom Cruise', 'Ken Watanabe'],
+        locandina: 'https://pad.mymovies.it/filmclub/2003/12/018/locandina.jpg'
+        },
+
+        {
+        titolo: "Le pagine della nostra vita",
+        durata: 120,
+        genere: "Romantico",
+        attori: ['Ryan Gosling', 'Rachel McAdams'],
+        locandina: 'https://pad.mymovies.it/filmclub/2005/06/044/locandina.jpg'
+        },
+
+        {
+        titolo: "Inception",
+        durata: 160,
+        genere: "Thriller, Fantascienza",
+        attori: ['Leonardo DiCaprio', 'Ken Watanabe'],
+        locandina: 'https://pad.mymovies.it/filmclub/2009/03/027/locandina.jpg'
+        },
+
+        {
+        titolo: "Il Discorso del Re",
+        durata: 120,
+        genere: "Drammatico, Storico",
+        attori: ["Colin Firth", "Geoffrey Rush", "Helena Bonham Carter"],
+        locandina: "https://pad.mymovies.it/filmclub/2010/03/042/locandina.jpg"
+        }
+    ];
+
+        var titolo = document.querySelector('#titolo');
+        var locandina = document.querySelector('#locandina');
+        var genere = document.querySelector('#genere');
+        var attori = document.querySelector('#attori');
+        var durata = document.querySelector('#durata');
+        // var anno = document.querySelector('#anno');
+
+
+    function inserisciFilm(indice){
+        titolo.innerHTML = film[indice].titolo;
+        locandina.setAttribute('src', film[indice].locandina);
+        genere.innerHTML = film[indice].genere;
+
+        var elenco = '';
+        for(var i = 0; i<film[indice].attori.length; i++){
+            elenco += "<li><a href='https://it.wikipedia.org/wiki/" + film[indice].attori[i] + "'>" + film[indice].attori[i] + "</a></li>";
+        }
+
+        attori.innerHTML = elenco;
+        durata.innerHTML = film[indice].durata;
+    }
+
+    var contatore=0;
+
+    inserisciFilm(contatore);
+
+    function ruota(avanti,indietro){
+        if(avanti){
+            if(contatore >= film.length -1){
+                contatore = 0;
+            }else{
+                ++contatore;    
+            }
+        }
+        if(indietro){
+            if(contatore == 0){
+                contatore = film.length -1;
+            }else{
+                --contatore;
+            }
+        }    
+        inserisciFilm(contatore);
+    }
+
+
+    var singoloFilmJSON = JSON.stringify(film[0]);
+    console.log(singoloFilmJSON);
+
+    var singoloFilmBJ = JSON.parse(singoloFilmJSON);
+    console.log(singoloFilmBJ);
+
+
+    </script>
+
+
+</body>
+</html>

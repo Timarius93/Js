@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="pagina">
+        <h1 id="titolo">Titolo</h1>
+        <ul>
+            <li class="blu" id="uno">Acqua</li>
+            <li class="blu" id="due">Pane</li>
+            <li class="blu" id="tre">Latte</li>
+            <li class="blu" id="quattro">Biscotti</li>
+        </ul>
+
+        <ul id="libri">
+            <li class="rosso">Harry Potter <button class="btn">Elimina</button></li>
+            <li class="rosso">Guerra e Pace <button class="btn">Elimina</button></li>
+            <li class="rosso">LOTR <button class="btn">Elimina</button></li>
+            <li class="rosso">La ragazza delle arance <button class="btn">Elimina</button></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+        //child
+        var libri = document.getElementsByTagName('ul')[1];
+        // var libri = document.querySelectorAll('ul#libri'); per selezionare la ul con l'id libri
+
+        var primoFiglio = libri.firstElementChild;
+        var ultimoFiglio = libri.lastElementChild;
+
+        console.log(primoFiglio);
+        console.log(ultimoFiglio);
+
+        console.log(primoFiglio.firstChild.textContent);
+        console.log(primoFiglio.lastElementChild);
+
+
+        //innerHTML
+        ultimoFiglio.firstChild.textContent = 'Metamorfosi';
+
+        //ParentNode
+        var genitore1 = ultimoFiglio.parentNode;
+
+        console.log(genitore1);
+        console.log(ultimoFiglio.firstElementChild.parentElement);
+
+    </script>
+
+
+</body>
+
+</html>

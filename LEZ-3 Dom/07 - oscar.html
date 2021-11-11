@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Premi Oscar 2021 - Attori</h1>
+
+    <ul>
+        <li>
+            <img id="img1">
+        </li>
+        <li>
+            <img id="img2">
+        </li>
+        <li>
+            <img id="img3">
+        </li>
+        <li>
+            <img id="img4">
+        </li>
+    </ul>
+
+    <a href="">bla</a>
+
+    
+    <script type="text/javascript">
+
+        /*
+        Inserire il nome con il relativo link a wikipedia nelle li
+        inserire immagine relativa all'attore
+        */
+
+//////////////////////////////////////////////////////////////////////////////////////// NON USARE
+        // var h3_1 = document.createElement('h3');
+        // var ant = document.createTextNode('Anthony Hopkins');
+        // h3_1.appendChild(ant);
+        // var genitore = document.querySelectorAll('li')[0];
+        // genitore.appendChild(h3_1);
+    
+        // var h3_2 = document.createElement('h3');
+        // var fra = document.createTextNode('Frances McDormand');
+        // h3_2.appendChild(fra);
+        // var genitore2 = document.querySelectorAll('li')[1];
+        // genitore2.appendChild(h3_2);
+
+        // var h3_3 = document.createElement('h3');
+        // var dan = document.createTextNode('Daniel Kaluuya');
+        // h3_3.appendChild(dan);
+        // var genitore3 = document.querySelector('li')[2];
+        // genitore3.appendChild(h3_3);
+
+        // var h3_4 = document.createElement('h3');
+        // var you = document.createTextNode('Youn Yuh-jung');
+        // h3_4.appendChild(you);
+        // var genitore4 = document.querySelector('li')[3];
+        // genitore4.appendChild(h3_4);
+
+        // var array = [genitore, genitore2, genitore3, genitore4];
+
+
+        // var listaLi = document.querySelectorAll('li');
+        // for (var i = 0; i < listaLi.length; i++){
+        //     listaLi[i].appenChild(array[i]);
+        // }
+//////////////////////////////////////////////////////////////////////////////////////// NON USARE
+        var attori = ['Anthony Hopkins', 'Frances McDormand', 'Daniel Kaluuya','Yoon Yeo-jeong']
+
+        //Inietto nella lista gli li
+        var lista = document.querySelectorAll('li');
+
+        //creo array di immagini
+        var imgArray =[        
+        'media/Anthony_Hopkins.jpg',
+        'media/Daniel_Kaluuya.jpg',
+        'media/Frances_McDormand.jpg',
+        'media/Youn_Yuh-jung.jpg']
+
+        var linkArray = [
+        'https://it.wikipedia.org/wiki/Anthony_Hopkins',
+        'https://it.wikipedia.org/wiki/Frances_McDormand',
+        'https://it.wikipedia.org/wiki/Daniel_Kaluuya',
+        'https://it.wikipedia.org/wiki/Youn_Yuh-jung']; 
+        
+        var c = 1;
+        for (var i = 0; i < lista.length; i++){
+            
+        var h3 = document.createElement("h3");
+        var nome = document.createTextNode(attori[i]);
+        var anchor = document.createElement("a");
+        anchor.setAttribute('href',linkArray[i]);
+        anchor.appendChild(nome);
+        h3.appendChild(anchor);
+
+        var img = document.getElementById('img'+ c++);
+        img.setAttribute('src', imgArray[i]);
+
+        lista[i].insertBefore(h3, img);
+
+}
+
+
+    
+
+    </script>
+</body>
+</html>

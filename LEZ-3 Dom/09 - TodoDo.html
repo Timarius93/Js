@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+    
+    <input type="text" id="input">
+    <input type="button" onclick="aggiungi()" value="Aggiungi">
+    
+    <ul id="feed">
+
+    </ul>
+
+    <input class="nascondi" type="button" onclick="pulisciLista()" value="Clean" id="btn">
+
+    <script type="text/javascript">
+    
+    //aggiungi nuovo li + carattere X in uno span per eliminare il singolo li
+    //pulire input di testo ad ogni inserimento 
+    //Pulsante per pulire intera lista di cose da fare compare solo se esiste qualcosa
+    //da fare nella lista (Css)
+
+    function aggiungi(){
+        var input = document.getElementById('input').value;
+    
+    if(input.trim() != ''){
+        var elTodoNode = document.createElement('li');
+
+        var txtNode = document.createTextNode(input);
+
+        elTodoNode.appendChild(txtNode);
+
+        document.getElementById('feed').appendChild(elTodoNode);
+
+        //creo il pulsante X per eliminare la voce
+
+        var elimTodoNode = document.createElement('span');//<span></span>
+        elimTodoNode.innerText = ' X'; //<span> X </span>
+
+        //Gestione dell'evento nello script
+        elimTodoNode.onclick = function(){
+            elTodoNode.parentNode.removeChild(elTodoNode);
+            checkCose();
+        }
+
+        elTodoNode.appendChild(elimTodoNode);
+
+        checkCose();
+        //cancello input di testo 
+        document.getElementById('input').value = '';
+    }else{
+        alert('Non hai scritto nulla nel campo');
+    }
+
+    }
+
+
+    function pulisciLista(){
+        document.getElementById('feed').innerHTML = '';
+        document.getElementById('btn').setAttribute('class', 'nascondi');
+        //oppure
+        checkCose();
+    }
+
+    function checkCose(){
+        var listaCose = document.getElementsByTagName('li');
+        
+        if(listaCose.length != 0){
+            document.getElementById('btn').setAttribute('class', '');
+        }else{
+            document.getElementById('btn').setAttribute('class', 'nascondi');
+        }
+    }
+
+    
+    
+    
+    
+    
+    </script>
+
+
+</body>
+</html>

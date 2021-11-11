@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="pagina">
+        <h1 id="titolo">Titolo</h1>
+        <ul>
+            <li class="blu" id="uno">Acqua</li>
+            <li class="blu" id="due">Pane</li>
+            <li class="blu" id="tre">Latte</li>
+            <li class="blu" id="quattro">Biscotti</li>
+        </ul>
+    </div>
+
+<script type="text/javascript">
+
+//creo nuovo elemento
+var nuovoEl = document.createElement('li');
+
+var nuovoTxt = document.createTextNode('Birra');
+
+nuovoEl.appendChild(nuovoTxt); //<li>Birra</li>
+nuovoEl.setAttribute('class', 'blu'); //gli metto la classe chiamata blu
+
+var genitore = document.querySelector('ul');
+
+genitore.appendChild(nuovoEl);
+
+//rimuovo elemento
+var elementoDaRimuovere = document.getElementsByTagName('li')[2];
+genitore.removeChild(elementoDaRimuovere);
+
+</script>
+
+
+</body>
+</html>

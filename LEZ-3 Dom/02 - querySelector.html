@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="pagina">
+        <h1 id="titolo">Titolo</h1>
+        <ul>
+            <li class="blu" id="uno">Acqua</li>
+            <li class="blu" id="due">Pane</li>
+            <li class="blu" id="tre">Latte</li>
+            <li class="blu" id="quattro">Biscotti</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        //Quesry Selector
+        //Funziona utilizzando una sinstassi CSS
+        //nel caso in cui recupero più elementi, restituisce solo la prima occorrenza
+
+        var primo = document.querySelector('#uno');
+        console.log(primo);
+
+        var elementi = document.querySelector('li.blu');
+        console.log(elementi);
+
+        //Query Selector ALL
+        //così posso recuperare più elementi, e creo una node list
+        var tutti2 = document.querySelectorAll('li.blu');
+        console.log(tutti2);
+
+        tutti2[2].className = "rosso";
+
+        if (tutti2.length > 0) {
+            for (var i = 0; i < tutti2.length; i++) {
+                tutti2[i].className = 'verde';
+            }
+        }
+
+        
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div id="pagina">
+        <h1 id="titolo">Benvenuto sulla pagina</h1>
+
+        <ul>
+            <li class="rosso" id="uno">acqua</li>
+            <li class="rosso" id="due">pane</li>
+            <li class="rosso" id="tre">frutta</li>
+            <li class="rosso" id="quattro">biscotti</li>
+        </ul>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        //get element by id - singolo
+        var uno = document.getElementById('uno');
+        console.log(uno);
+        uno.innerHTML = 'birra';
+        uno.className = 'blu';
+
+        //get elements by tag name
+        var tutti = document.getElementsByTagName('li');
+        console.log(tutti);
+
+        for(var i=0; i<tutti.length; i++){
+            tutti[i].className = 'blu';
+        }
+
+        //get elements by class name - da sostituire con query selector
+        // var elementi = document.getElementsByClassName('rosso');
+
+        // if(elementi.length > 0){
+        //     for(var n = 0; n < elementi.length; n++){
+        //         elementi[n].className = 'verde';
+        //     }
+        // }
+
+
+    </script>
+
+
+</body>
+</html>

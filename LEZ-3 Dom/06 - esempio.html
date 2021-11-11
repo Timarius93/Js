@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style1.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Numero di elementi da acquistare: </h2>
+    <ul>
+        <li onclick="segnaBarra()">Frutta</li>
+        <li onclick="segnaBarra()">Verdura</li>
+        <li onclick="segnaBarra()">Pesce</li>
+        <li onclick="segnaBarra()">Carne</li>
+        <li onclick="segnaBarra()">Vino</li>
+    </ul>
+
+    <div id="test"></div>
+
+    <script type="text/javascript">
+        //senza toccare html, inserisci due nuovi li, uno all'inizio (insertBefore), uno alla fine (appendChild)
+        //successivamente imposta una classe blu a tutti gli li
+        //cambia il testo dell'h2 inserendo il numero di elementi (7)
+        //al click sulla singola voce della lista, compare il testo barrato
+
+
+        //creo gli elementi da inserire 
+        var nuovoEl = document.createElement('li');
+        var nuovoTxt = document.createTextNode('BIRRA');
+        var nuovoEl2 = document.createElement('li');
+        var nuovoTxt2 = document.createTextNode('CIOCCOLATOOOOHH');
+
+        nuovoEl.appendChild(nuovoTxt);
+        nuovoEl2.appendChild(nuovoTxt2);
+
+        //ultimo elemento
+        var genitore = document.querySelector('ul');
+        genitore.appendChild(nuovoEl);
+
+        //primo elemento
+        var genitore2 = document.getElementsByTagName('ul')[0];
+        genitore2.setAttribute('id', 'primo');
+        genitore2.insertBefore(nuovoEl2, primo.firstElementChild);
+
+        //classe 'blu' a tutti gli li
+        var tutti = document.querySelectorAll('li');
+        for (var i = 0; i < tutti.length; i++){
+            tutti[i].setAttribute('class','blu');
+        }
+
+        //cambio testo h2
+        var titolo = document.querySelector('h2');
+        var testo = titolo.textContent;
+
+        var totItem = tutti.length;
+        var nuovoTitolo = testo + ' ' + totItem;
+        titolo.innerHTML = nuovoTitolo;
+
+    </script>
+
+</body>
+
+</html>

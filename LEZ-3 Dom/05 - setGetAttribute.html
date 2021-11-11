@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="pagina">
+        <h1 id="titolo">Lista della spesa</h1>
+        <ul>
+            <li class="blu" id="uno">Acqua <button>Elimina</button></li>
+            <li class="blu" id="due">Pane</li>
+            <li class="blu" id="tre">Latte</li>
+            <li class="blu" id="quattro">Biscotti</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+
+        var primoEl = document.getElementById('uno');
+
+        if(primoEl.hasAttribute('class')){
+            var attr = primoEl.getAttribute('class');
+            console.log("La classe del primo elemento è : " + attr);
+        }
+
+        primoEl.className='rosso';
+
+        //set attribute
+        var terzoEl = document.querySelector('#tre');
+        terzoEl.setAttribute('class','rosso'); //vedere aggiunta classe
+        terzoEl.setAttribute('title', 'terzo elemento della lista');
+        terzoEl.setAttribute('style','font-size: 30px');
+
+        //remove attribute
+        if(terzoEl.hasAttribute('class')){
+            terzoEl.removeAttribute('class');
+        }
+
+        //aggiunta classe
+        primoEl.classList.add('barrato');
+
+        //sibling - gemelli
+        var elDue = document.getElementsByTagName('li').item(2);
+        var precedente = elDue.previousElementSibling;
+        var successivo = elDue.nextElementSibling;
+
+        precedente.classList.add('barrato');
+        successivo.classList.add('barrato');
+
+
+    </script>
+
+</body>
+
+</html>
