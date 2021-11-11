@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form method="POST" action="http://www.example.org" >
+        <label for="nome">Nome: </label>
+        <input type="text" id="nome" name="nome">
+        <br>
+        <div id="feedback"></div>
+
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" name="cognome">
+        <br>
+        <input type="submit" id="sub" value="Registrati">
+    </form>
+
+    <button id="btn">Clicca</button>
+
+    <script type="text/javascript">
+    
+    var nome = document.getElementById('nome'); //<input id='nome' ecc....
+    var feed = document.getElementById('feedback');
+
+    // function controllaNome(){  //viene fatta partire quando sono in blur
+    //     var nomeUtente = nome.value;
+    //     if(nomeUtente.length < 5){
+    //         feed.innerHTML = 'Non puoi usare un nome così corto';
+    //         feed.setAttribute('class', 'arancione');
+    //     }else{
+    //         feed.innerHTML = '';
+    //     }
+
+    // }
+
+    function controllaNome(minLength){
+        var nomeUtente = nome.value;
+        if(nomeUtente.length < minLength){
+            feed.innerHTML = " Non puoi usare un nome così corto";
+            feed.setAttribute('class', 'arancione');
+        }else{
+            feed.innerHTML = ''
+        }
+    }
+
+    function suggerisci(){ //viene fatta partire quando sono in focus
+        feed.innerHTML = "Caro utente utilizza il tuo nome di battesimo";
+        feed.setAttribute('class', 'verde');
+    }
+
+    nome.addEventListener('blur', function(){
+        controllaNome(5);
+    }, false);
+    nome.addEventListener('focus', suggerisci, false)
+
+    //collego due funzioni differenti allo stesso evento 
+
+    const primaFunzione = () => console.log("Questo arriva dalla prima funzione");
+    const secondaFunzione = () => console.log("Questo arriva dalla seconda funzione");
+    
+    var btn = document.getElementById('btn');
+
+    btn.addEventListener('click', () => {
+        primaFunzione();
+        secondaFunzione();
+    },false);
+
+    /*
+    if(nome.addEventListener){
+        nome.addEventListener('focus', suggerisci, false)
+    }else{
+        nome.attachEvent('onfocus', suggerisci)
+    }
+    
+    */
+
+
+    </script>
+
+
+
+</body>
+</html>

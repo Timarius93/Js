@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://www.example.org" id="mioForm" name="mioForm" method="GET">
+        
+        <input type="text" placeholder="Username" id="username" name="username"><br>
+        <input type="email" placeholder="Email" id="email" name="email"><br>
+        <input type="text" placeholder="Cap" id="cap" name="cap"><br>
+        <input type="text" placeholder="Codice Fiscale" id="codFisc" name="codFisc"><br>
+        <select name="nazione" id="nazione">
+            <option value="-1" >Scegli Nazionalità</option>
+            <option value="0">ITA</option>
+            <option value="1">USA</option>
+            <option value="2">FRA</option>
+            <option value="3">SPA</option>
+            <option value="4">GER</option>
+        </select><br>
+        <input type="checkbox" id="termini">
+        <label for="termini">Accetta termini e condizioni</label><br>
+        <input type="submit" value="Registrati">
+    </form>
+
+    <div id="feedback"></div>
+
+    <script type="text/javascript">
+
+    var mioForm = document.getElementById('mioForm');
+    var feedback = document.getElementById('feedback');
+
+    function validate(){
+        //controllo tutti i campi
+        var username = document.getElementById('username');
+        var email = document.getElementById('email').value;
+
+        if(username.value == ''){
+            feedback.innerHTML += 'Hai dimenticato lo username <br>'
+            event.preventDefault();
+            username.focus();   
+            return false;
+        }
+
+        //per la mail e il cod fisc utilizza il metodo .match()
+        
+        // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        //regular expression per la mail
+    }
+
+    mioForm.addEventListener('submit', validate, false);
+
+
+
+    </script>
+
+
+</body>
+</html>

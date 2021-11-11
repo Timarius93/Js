@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">Saluta</button>
+    <br>
+    <button id="btn2">Saluta2</button>
+
+    <script type="text/javascript">
+
+        function saluta(){
+            alert("ciao come stai?");
+        }
+
+        var btn = document.getElementById('btn');
+
+        //gestione evento da dom
+        btn.onclick = saluta;
+
+        //event listener
+        btn2.addEventListener('click',saluta,false);
+
+
+    </script>
+
+
+</body>
+</html>
